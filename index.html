@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Urban Athletic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Indie+Flower&display=swap" rel="stylesheet">
+<style>
+    body {
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+      color: #ffeb3b;
+      font-family: 'Indie Flower', sans-serif;
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("imagenes/logo_urban_athletic.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    h1 {
+      font-size: 5em;
+      margin-bottom: 11px;
+      color: #ffeb3b;
+      text-shadow:
+        0 0 5px #fff200,
+        0 0 10px #fff200,
+        0 0 20px #fff200,
+        0 0 40px #9c27b0,
+        0 0 60px #9c27b0,
+        0 0 80px #9c27b0;
+      animation: brillo 2s infinite alternate;
+    }
+
+    .galeria-modelos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .modelo-zapato {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+    }
+
+    .zapato {
+      cursor: pointer;
+      width: 200px;
+      border: 4px solid #9c27b0;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .zapato:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #9c27b0;
+    }
+
+    .modelo-nombre {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5em;
+      margin-top: 10px;
+      word-break: break-word;
+    }
+
+    .detalle {
+      display: none;
+      margin-top: 30px;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .galeria img {
+      width: 150px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 2px solid #ffeb3b;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ffeb3b;
+      color: #111;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #fdd835;
+    }
+
+    .barra-inferior {
+      margin-top: 60px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      border-top: 2px solid #9c27b0;
+    }
+
+    .barra-inferior a {
+      color: #ffeb3b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .barra-inferior a:hover {
+      text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<h1>Urban Athletic</h1>
+<p>Haz clic en cualquier zapato para ver más detalles</p>
+
+<div class="galeria-modelos">
+  <script>
+    const nombres = [
+      { nombre: "NIKE Air Force 1 de Kobe Bryant White", color: "#9c27b0" },
+      { nombre: "NIKE Air Force 1 de Kobe Bryant", color: "#ffeb3b" },
+      { nombre: "Nike NOCTA Glide Black and White", color: "#f0f0f0" },
+      { nombre: "Nike SB Dunk Low Year Of The Dragon", color: "#9c27b0" },
+      { nombre: "Nike x Polaroid SB Dunk ", color: "#ffeb3b" },
+      { nombre: "PUMA x LAMELO BALL LaFrancé Moment", color: "#f0f0f0" },
+      { nombre: "Air Jordan 4 Fossil Stone Jordan x A Ma Manière", color: "#9c27b0" },
+      { nombre: "PUMA SUEDE XL - BLACK", color: "#ffeb3b" },
+      { nombre: "PUMA Cali Court", color: "#f0f0f0" },
+      { nombre: "Louis Vuitton LV Skate Sneaker", color: "#9c27b0" },
+      { nombre: "NIKE PHANTOM GX2 FG", color: "#ffeb3b" },
+      { nombre: "Puma x RIPNDIP Slipstream", color: "#f0f0f0" }
+    ];
+
+    for (let i = 1; i <= 12; i++) {
+      document.write(`
+        <div class="modelo-zapato">
+          <img src="imagenes/zapato${i}.jpg" alt="Modelo ${i}" class="zapato" onclick="mostrarDetalles(${i})">
+          <div class="modelo-nombre" style="color: ${nombres[i - 1].color};">${nombres[i - 1].nombre}</div>
+        </div>
+      `);
+    }
+  </script>
+</div>
+
+<script>
+  for (let i = 1; i <= 12; i++) {
+    document.write(`
+      <div class="detalle" id="detalle${i}">
+        <p>Diseñados para confort y estilo urbano.</p>
+        <div class="galeria">
+          <img src="imagenes/zapato${i}_lado.jpg" alt="Lado">
+          <img src="imagenes/zapato${i}_frente.jpg" alt="Frente">
+          <img src="imagenes/zapato${i}_arriba.jpg" alt="Arriba">
+        </div>
+        <button class="btn" onclick="window.location.href='https://wa.me/50247013197'">Comunicate con nosotros por Whatsapp</button>
+      </div>
+    `);
+  }
+</script>
+
+<script>
+  function mostrarDetalles(numero) {
+    for (let i = 1; i <= 12; i++) {
+      document.getElementById('detalle' + i).style.display = 'none';
+    }
+    document.getElementById('detalle' + numero).style.display = 'block';
+    window.scrollTo({ top: document.getElementById('detalle' + numero).offsetTop - 20, behavior: 'smooth' });
+  }
+</script>
+
+<div class="barra-inferior">
+  <a href="https://wa.me/50247013197" target="_blank">
+    <img src="imagenes/whatsapp.png" alt="WhatsApp" style="width:24px; vertical-align:middle; margin-right:8px;">
+    WhatsApp
+  </a>
+  <a href="https://www.instagram.com/urban.athleticgt/" target="_blank">
+    <img src="imagenes/instagram.png" alt="Instagram" style="width:28px; vertical-align:middle; margin-right:10px;">
+    Instagram
+  </a>
+  <a href="https://wa.me/50247013197">
+    <img src="imagenes/whatsapp.png" alt="Gmail" style="width:24px; vertical-align:middle; margin-right:8px;">
+    Servicio al Cliente
+  </a>
+</div>
+
+<div style="margin-top: 40px; text-align: center;">
+  <h2 style="color:#ffeb3b;">Envíos disponibles con:</h2>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 20px;">
+    <div>
+      <img src="imagenes/cargoexpreso.png" alt="Cargo Expreso" style="height:80px; border-radius:10px;">
+    </div>
+    <div>
+      <img src="imagenes/forza.png" alt="Forza" style="height:80px; border-radius:10px;">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
